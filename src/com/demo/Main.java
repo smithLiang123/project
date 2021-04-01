@@ -19,5 +19,6 @@ public class Main {
         //dir.mkdir();
         file.mkdir();
         System.out.println(dir.getAbsolutePath());
+        System.out.println();
     }
 }
