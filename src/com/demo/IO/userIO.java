@@ -19,18 +19,21 @@ public class userIO {
     CSVHelper csvHelper;
     String csvFilePath;
     public userIO(){
-        this.headers= new String[]{"No.", "Name", "Age", "Gender", "vip", "Deposit","Password","Phone"};
+        /**
+         * 各个属性存储的顺序：1.号码 2.姓名 3.年龄 4.生日 5.身高 6.体重 7.性别 8.是否是VIP 9.存款 10.密码 11.电话号码
+         * */
+        this.headers= new String[]{"No.", "Name", "Age", "Birthday","height","weight","Gender", "vip", "Deposit","Password","Phone"};
         this.csvHelper=new CSVHelper(headers,',');
-        this.csvFilePath="C://Users//13188//Desktop//大三下学期//软件工程//data//user.csv";
+        this.csvFilePath=".//data//user1.csv";
     }
 
 
     public static void main(String[] args) {
         userIO userIO=new userIO();
-        userIO.user=new user(101,"lsm",21,"male",true,99999,"lsm","18589081954");
-        //userIO.writeUserInfo(userIO.user,userIO.csvHelper,userIO.csvFilePath);
-        userIO.user=new user(999,"lll",23,"male",true,282828,"lsm12345678","18589081954");
-        userIO.addUser(userIO.user, userIO.csvHelper,userIO.csvFilePath);
+        userIO.user=new user(101,"lsm",21,"male",true,99999,"lsm","18589081954","2000/01/01",88,180);
+        userIO.writeUserInfo(userIO.user,userIO.csvHelper,userIO.csvFilePath);
+  //      userIO.user=new user(999,"lll",23,"male",true,282828,"lsm12345678","18589081954");
+  //      userIO.addUser(userIO.user, userIO.csvHelper,userIO.csvFilePath);
         List<String[]> list= userIO.readUserInfo(userIO.csvFilePath, userIO.csvHelper);
         for (String[] s:list){
             for (String x:s){
@@ -50,7 +53,12 @@ public class userIO {
      * */
     public void writeUserInfo(user user,CSVHelper csvHelper,String csvFilePath){
         List<String[]> content=new LinkedList<String[]>();
-        String[] temp={user.getNo()+"",user.getName(),""+user.getAge(),user.getGender(),""+user.isVip(),""+user.getDeposit(),user.getPassword(),user.getPhoneNumber()};
+        /**
+         * 各个属性存储的顺序：1.号码 2.姓名 3.年龄 4.生日 5.身高 6.体重 7.性别 8.是否是VIP 9.存款 10.密码 11.电话号码
+         * */
+        String[] temp={user.getNo()+"",user.getName(),""+user.getAge(),user.getBirthday(),
+                ""+user.getHeight(),""+user.getWeight(),user.getGender(),
+                ""+user.isVip(),""+user.getDeposit(),user.getPassword(),user.getPhoneNumber()};
         content.add(temp);
         csvHelper.writeCSV(csvFilePath,content);
     }

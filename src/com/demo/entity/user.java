@@ -1,19 +1,36 @@
 package com.demo.entity;
 
+import java.util.Date;
+
 public class user {
+    /**
+     * @author lsm
+     * @date 2021/4/1
+     * @description User:
+     *             No;name;birthday;gender;vip;deposit;height;weight;password;PhoneNumber;
+     *
+     *
+     *
+     *
+     *
+     * */
+
     public static void main(String[] args) {
-        user user=new user(100,"lsm",21,"male",true,10000,"lsm12345678","18589081954");
+        user user=new user(100,"lsm",21,"male",true,10000,"lsm12345678","18589081954","2000/01/01",85.8,180);
         System.out.println(user);
     }
     private int no;
     private String name;
     private int age;
+    private String birthday;    //new
+    private double height;    //new
+    private double weight;     //new
     private String gender;
     private boolean vip;
     private double deposit;
     private String password;
     private String phoneNumber;
-
+/** getter and setter   */
     public int getNo() {
         return no;
     }
@@ -62,9 +79,29 @@ public class user {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    public String getBirthday() {
+        return birthday;
+    }
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+    public double getHeight() {
+        return height;
+    }
+    public void setHeight(double height) {
+        this.height = height;
+    }
+    public double getWeight() {
+        return weight;
+    }
+    public void setWeight(double weight) {
+        this.weight = weight;
+    }
 
     public user(){}
-    public user(int no, String name, int age, String gender, boolean vip, double deposit,String password,String phoneNumber){
+    public user(int no, String name, int age, String gender,
+                boolean vip, double deposit,String password,String phoneNumber,
+                 String birthday,double height,double weight){
         setNo(no);
         setName(name);
         setAge(age);
@@ -73,17 +110,25 @@ public class user {
         setDeposit(deposit);
         setPassword(password);
         setPhoneNumber(phoneNumber);
+        setBirthday(birthday);
+        setHeight(height);
+        setWeight(weight);
     }
 
     @Override
     public String toString() {
-        return "{"+ no +','+
-                 name+','+
-                age+','+
-                gender + ','+
-                vip +','
-                 + deposit +','+password+
-                ','+phoneNumber+
+        return "user{" +
+                "no=" + no +
+                ", name='" + name + '\'' +
+                ", age=" + age +
+                ", birthday='" + birthday + '\'' +
+                ", height=" + height +
+                ", weight=" + weight +
+                ", gender='" + gender + '\'' +
+                ", vip=" + vip +
+                ", deposit=" + deposit +
+                ", password='" + password + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
                 '}';
     }
 }
