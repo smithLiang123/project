@@ -55,6 +55,7 @@ public class UserRegister {
         old.add(user_info);
         csvHelper.writeCSV(this.csvFilePath,old);
     }
+
     public void add_headers(String[] str,String csvFilePath){//添加表头
         csvHelper.writeCSV(csvFilePath,str);
     }

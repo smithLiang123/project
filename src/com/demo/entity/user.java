@@ -17,7 +17,7 @@ public class user {
 
     public static void main(String[] args) {
         user user=new user(100,"lsm",21,"male",true,10000,"lsm12345678","18589081954","2000/01/01",85.8,180);
-        System.out.println(user);
+        System.out.println(user.user_info()[2]);
     }
     private int no;
     private String name;
