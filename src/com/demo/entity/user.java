@@ -97,7 +97,21 @@ public class user {
     public void setWeight(double weight) {
         this.weight = weight;
     }
-
+    public String[] user_info(){
+        String[] user=new String[11];
+        user[0]=""+this.no;
+        user[1]=""+this.name;//"No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone"
+        user[2]=""+this.age;
+        user[3]=""+this.birthday;
+        user[4]=""+this.height;
+        user[5]=""+this.weight;
+        user[6]=""+this.gender;
+        user[7]=""+this.vip;
+        user[8]=""+this.deposit;
+        user[9]=""+this.password;
+        user[10]=""+this.phoneNumber;
+        return user;
+    }
     public user(){}
     public user(int no, String name, int age, String gender,
                 boolean vip, double deposit,String password,String phoneNumber,

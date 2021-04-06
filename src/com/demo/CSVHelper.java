@@ -1,4 +1,5 @@
 package com.demo;
+import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.LinkedList;
 import java.util.List;
@@ -82,6 +83,15 @@ public class CSVHelper {
             System.exit(0);
         }
     }
+    public void writeCSV(String path,String[] content){
+        try {
+            CsvWriter csvWriter = new CsvWriter(path, seperator, Charset.forName("UTF-8")); // 写表头和内容
+            csvWriter.writeRecord(headers);
+            csvWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
     /**
      * 追加 csv
      * @param path
@@ -89,7 +99,7 @@ public class CSVHelper {
      * @description 在path目标文件末尾追加内容
      * */
     public void addCSV(String path,List<String[]> content){
-        List<String[]> result = new LinkedList<>();
+        List<String[]> result = new LinkedList<>();//新建空list存放数据
         try {			// 第一参数：读取文件的路径; 第二个参数：分隔符; 第三个参数：字符集
             CsvReader csvReader = new CsvReader(path, seperator, Charset.forName("UTF-8"));
             // 跳过标题
@@ -103,8 +113,7 @@ public class CSVHelper {
             System.out.println(e.getMessage());
             System.exit(0);
         }
-
-        for (String[] s:content){
+        for (String[] s:content){//在result中添加新的内容
             result.add(s);
         }
         try {
