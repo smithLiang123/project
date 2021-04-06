@@ -1,4 +1,5 @@
 package com.demo;
+import java.io.File;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 
@@ -16,7 +17,8 @@ public class demo {
         readCSV();
     }
     public static void writeCSV(){
-        String csvFilePath="C://Users//13188//Desktop//大三下学期//软件工程//data//1.csv";
+
+        String csvFilePath="data//1.csv";
         try {
             //创建csv写对象， CSVWriter(文件路径，分隔符，编码格式)
             CsvWriter csvWriter=new CsvWriter(csvFilePath,',',Charset.forName("UTF-8"));
@@ -37,7 +39,7 @@ public class demo {
         try{
             //保存数据
             ArrayList<String[]> csvFileList=new ArrayList<String[]>();
-            String csvFilePath="C://Users//13188//Desktop//大三下学期//软件工程//data//1.csv";
+            String csvFilePath="data//1.csv";
             CsvReader reader=new CsvReader(csvFilePath,',',Charset.forName("UTF-8"));
             //跳过表头
             reader.readHeaders();

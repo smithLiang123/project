@@ -1,24 +1,23 @@
 package com.demo.fuction;
 import com.demo.CSVHelper;
-import com.demo.IO.userIO;
 import com.demo.entity.user;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class userLogin {
+public class UserLogin {
     user user;
     String[] headers;
     CSVHelper csvHelper;
     String csvFilePath;
-    userLogin(){
+    UserLogin(){
         this.headers= new String[]{"No.", "Name", "Age", "Gender", "vip", "Deposit","Password","Phone"};
         this.csvHelper=new CSVHelper(headers,',');
-        this.csvFilePath="C://Users//13188//Desktop//大三下学期//软件工程//data//user.csv";
+        this.csvFilePath="data//user.csv";
     }
 
     public static void main(String[] args) {
-        userLogin userLogin=new userLogin();
+        UserLogin userLogin=new UserLogin();
         List<String[]> list= userLogin.readUserInfo(userLogin.csvFilePath, userLogin.csvHelper);
 //        for (String[] s:list){
 //            for (String x:s){
