@@ -1,10 +1,13 @@
 package com.demo.GUI;
 
+import com.demo.fuction.UserLogin;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 
 
 public class SignGUI extends JFrame {
@@ -199,6 +202,18 @@ public class SignGUI extends JFrame {
 		btnNewButton7.setContentAreaFilled(false);//设置按钮透明
 		btnNewButton7.setBorder(null);//取消边框
 		contentPane.add(btnNewButton7);
+		btnNewButton7.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String phone=textField.getText();     //textField是手机号
+				String password=textField_1.getText();  //textField_1是密码
+				System.out.println(phone);
+				System.out.println(password);
+				UserLogin userLogin=new UserLogin();
+				userLogin.user_login(phone,password);
+
+			}
+		});
 		
 		/*Button: REGISTER*/
 		JButton btnNewButton8 = new JButton("REGISTER");

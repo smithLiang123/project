@@ -5,6 +5,8 @@ import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import com.demo.entity.user;
+import com.demo.fuction.UserRegister;
 
 /**
  * @author kxj
@@ -20,11 +22,11 @@ import java.awt.event.ActionListener;
 public class RegisGUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField textField;          //account
+	private JTextField textField_1;        //password
+	private JTextField textField_2;        //height
+	private JTextField textField_3;        //weight
+	private JTextField textField_4;        //birthday
 
 	/**
 	 * Launch the application.
@@ -62,7 +64,7 @@ public class RegisGUI extends JFrame {
 		btnNewButton.setContentAreaFilled(false);//设置按钮透明
 		btnNewButton.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton.addActionListener(new ActionListener() {//Home
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        //打开新的窗口
@@ -83,7 +85,7 @@ public class RegisGUI extends JFrame {
 		btnNewButton2.setContentAreaFilled(false);//设置按钮透明
 		btnNewButton2.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton2.addActionListener(new ActionListener() {
+		btnNewButton2.addActionListener(new ActionListener() {//video
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        //打开新的窗口
@@ -104,7 +106,7 @@ public class RegisGUI extends JFrame {
 		btnNewButton3.setContentAreaFilled(false);//设置按钮透明
 		btnNewButton3.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton3.addActionListener(new ActionListener() {
+		btnNewButton3.addActionListener(new ActionListener() {//sales
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        //打开新的窗口
@@ -125,7 +127,7 @@ public class RegisGUI extends JFrame {
 		btnNewButton4.setContentAreaFilled(false);//设置按钮透明
 		btnNewButton4.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton4.addActionListener(new ActionListener() {
+		btnNewButton4.addActionListener(new ActionListener() {//book
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        //打开新的窗口
@@ -146,7 +148,7 @@ public class RegisGUI extends JFrame {
 		btnNewButton5.setContentAreaFilled(false);//设置按钮透明
 		btnNewButton5.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton5.addActionListener(new ActionListener() {
+		btnNewButton5.addActionListener(new ActionListener() {//information
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        //打开新的窗口
@@ -167,7 +169,7 @@ public class RegisGUI extends JFrame {
 		btnNewButton6.setContentAreaFilled(false);//设置按钮透明
 		btnNewButton6.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton6.addActionListener(new ActionListener() {
+		btnNewButton6.addActionListener(new ActionListener() {//sign in
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        //打开新的窗口
@@ -256,8 +258,15 @@ public class RegisGUI extends JFrame {
 		btnNewButton_1.setBorder(null);//取消边框
 		btnNewButton_1.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println(textField_1.getText());
+			public void actionPerformed(ActionEvent e) {    //注册第一版
+				String phone=textField.getText();
+				String password=textField_1.getText();
+				String height=textField_2.getText();
+				String weight=textField_3.getText();
+				String birthday=textField_4.getText();
+				user user=new user(phone,password,height,weight,birthday);
+				UserRegister userRegister=new UserRegister(user);
+				userRegister.add_user(userRegister);
 			}
 		});
 		contentPane.add(btnNewButton_1);

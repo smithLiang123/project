@@ -9,7 +9,7 @@ public class UserLogin {
     String[] headers;
     CSVHelper csvHelper;
     String csvFilePath;
-    UserLogin(){
+    public UserLogin(){
         this.headers= new String[]{"No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone"};
         this.csvHelper=new CSVHelper(headers,',');
         this.csvFilePath="data//user.csv";
@@ -55,8 +55,6 @@ public class UserLogin {
         List<String[]> result = csvHelper.readCSV(csvFilePath,false);
         return result;
     }
-
-
     /**
      * @param list
      * @param phoneNumber
@@ -94,4 +92,44 @@ public class UserLogin {
         }
 
     }
+    /**
+     * @param phoneNumber
+     * @para password
+     * @author lsm
+     * @date 2021/4/6
+     * @description 登录功能
+     * @return boolean
+     * */
+    public user user_login(String phoneNumber,String password){
+
+        UserLogin userLogin=new UserLogin();
+        List<String[]> list= userLogin.readUserInfo(userLogin.csvFilePath, userLogin.csvHelper);
+
+        String[] find = userLogin.find(list, phoneNumber);
+        if (find != null) {
+            boolean login = userLogin.match(find, password);
+            if (login) {
+                System.out.println("欢迎登陆 用户："+find[0]);
+                /**以后肯定有用*/
+                user user1=new user(Integer.parseInt(find[0]),find[1],Integer.parseInt(find[2]),find[6],Boolean.parseBoolean(find[7]),
+                        Double.parseDouble(find[8]),find[9],find[10],find[3],Double.parseDouble(find[4]),Double.parseDouble(find[5])
+                        );
+                return user;
+            }
+        }
+/**
+ *int no1, String name2, int age3, String gender4,
+ *                 boolean vip5, double deposit6,String password7,String phoneNumber8,
+ *                  String birthday9,double height10,double weight11
+ *
+ * "No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone"
+ *  0        1      2       3        4         5        6         7       8         9          10
+ * */
+
+
+
+
+        return null;
+    }
+
 }

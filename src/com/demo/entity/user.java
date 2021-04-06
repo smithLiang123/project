@@ -22,14 +22,14 @@ public class user {
     private int no;
     private String name;
     private int age;
-    private String birthday;    //new
-    private double height;    //new
-    private double weight;     //new
+    private String birthday;    //new    //register
+    private double height;    //new       //register
+    private double weight;     //new       //register
     private String gender;
-    private boolean vip;
-    private double deposit;
-    private String password;
-    private String phoneNumber;
+    private boolean vip;                     //default   false
+    private double deposit;                  //default    0.0
+    private String password;         //register
+    private String phoneNumber;      //register
 /** getter and setter   */
     public int getNo() {
         return no;
@@ -111,7 +111,7 @@ public class user {
         user[9]=""+this.password;
         user[10]=""+this.phoneNumber;
         return user;
-    }
+    }/**以String[] 方式返回user属性*/
     public user(){}
     public user(int no, String name, int age, String gender,
                 boolean vip, double deposit,String password,String phoneNumber,
@@ -128,6 +128,23 @@ public class user {
         setHeight(height);
         setWeight(weight);
     }
+    public user(String phoneNumber,String password,String Height,String Weight,String birthday){
+        this.phoneNumber=phoneNumber;
+        this.password=password;
+        this.height=Double.parseDouble(Height);
+        this.weight=Double.parseDouble(Weight);
+        this.birthday=birthday;
+        this.vip=false;
+        this.deposit=0.0d;
+
+
+        this.gender="male";
+        this.name="xyz";
+        this.age=21;
+        this.no=1111;
+
+    }
+
 
     @Override
     public String toString() {

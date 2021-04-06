@@ -9,11 +9,17 @@ public class UserRegister {
     String[] headers;
     CSVHelper csvHelper;
     String csvFilePath;
-    UserRegister(){
+    public UserRegister(){
         this.headers= new String[]{"No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone"};
         this.csvHelper=new CSVHelper(headers,',');
         this.csvFilePath="data//user.csv";
-    }
+    }/**无参默认构造器*/
+    public UserRegister(user user){
+        this.headers= new String[]{"No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone"};
+        this.csvHelper=new CSVHelper(headers,',');
+        this.csvFilePath="data//user.csv";
+        this.user=user;
+    }/**以user为参数的UserRegister构造器*/
 
     public static void main(String[] args) {
         UserRegister userRegister=new UserRegister();
