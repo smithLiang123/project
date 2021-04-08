@@ -1,5 +1,6 @@
 package com.demo.GUI;
 
+import com.demo.entity.user;
 import com.demo.fuction.UserLogin;
 
 import javax.swing.*;
@@ -210,7 +211,8 @@ public class SignGUI extends JFrame {
 				System.out.println(phone);
 				System.out.println(password);
 				UserLogin userLogin=new UserLogin();
-				userLogin.user_login(phone,password);
+				user u=userLogin.user_login(phone,password);
+				System.out.println(u);
 
 			}
 		});
