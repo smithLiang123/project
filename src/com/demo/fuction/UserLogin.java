@@ -1,5 +1,4 @@
 package com.demo.fuction;
-
 import com.demo.CSVHelper;
 import com.demo.entity.user;
 import java.util.List;
@@ -110,13 +109,12 @@ public class UserLogin {
         if (find != null) {
             boolean login = userLogin.match(find, password);
             if (login) {
-                System.out.println("欢迎登陆 用户："+find[1]);
+                System.out.println("欢迎登陆 用户："+find[0]);
                 /**以后肯定有用*/
-                user user1 = new user(Integer.parseInt(find[0]),find[1],Integer.parseInt(find[2]),find[6],Boolean.parseBoolean(find[7]),
+                user user1=new user(Integer.parseInt(find[0]),find[1],Integer.parseInt(find[2]),find[6],Boolean.parseBoolean(find[7]),
                         Double.parseDouble(find[8]),find[9],find[10],find[3],Double.parseDouble(find[4]),Double.parseDouble(find[5])
                         );
-                //登陆成功，返回有数据的user
-                return user1;
+                return user;
             }
         }
 /**
@@ -128,9 +126,10 @@ public class UserLogin {
  *  0        1      2       3        4         5        6         7       8         9          10
  * */
 
-        //登陆失败，返回没有数据的user
-        user nullUser = new user();
-        return nullUser;
+
+
+
+        return null;
     }
 
 }
