@@ -2,6 +2,7 @@ package com.demo.GUI;
 
 import com.demo.entity.user;
 import com.demo.fuction.UserRegister;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;

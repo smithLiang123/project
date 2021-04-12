@@ -24,7 +24,7 @@ public class userIO {
          * */
         this.headers= new String[]{"No.", "Name", "Age", "Birthday","height","weight","Gender", "vip", "Deposit","Password","Phone"};
         this.csvHelper=new CSVHelper(headers,',');
-        this.csvFilePath="data//user1.csv";
+        this.csvFilePath=".//data//user1.csv";
     }
 
 
