@@ -1,10 +1,13 @@
 package com.demo;
+
+import com.csvreader.CsvReader;
+import com.csvreader.CsvWriter;
+
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.util.LinkedList;
 import java.util.List;
-import com.csvreader.CsvReader;
-import com.csvreader.CsvWriter;
+
 /**
  * @author lsm
  * @date 2021/3/30
@@ -31,7 +34,7 @@ public class CSVHelper {
     public CSVHelper(String[] x) {
         this.setHeaders(x);
     }
-    public CSVHelper(String[] x,char y){
+    public CSVHelper(String[] x, char y){
         this.setHeaders(x);
         this.setSeperator(y);
     }              /**现在使用的CSVHelper构造器，x代表表头，y代表分隔符*/

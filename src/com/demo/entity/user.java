@@ -1,7 +1,5 @@
 package com.demo.entity;
 
-import java.util.Date;
-
 public class user {
     /**
      * @author lsm
@@ -128,18 +126,18 @@ public class user {
         setHeight(height);
         setWeight(weight);
     }
-    public user(String phoneNumber,String password,String Height,String Weight,String birthday){
+    public user(String phoneNumber,String password,String Height,String Weight,String name){
         this.phoneNumber=phoneNumber;
         this.password=password;
         this.height=Double.parseDouble(Height);
         this.weight=Double.parseDouble(Weight);
-        this.birthday=birthday;
+        this.birthday=null;
         this.vip=false;
         this.deposit=0.0d;
 
 
         this.gender="male";
-        this.name="xyz";
+        this.name=name;
         this.age=21;
         this.no=1111;
 

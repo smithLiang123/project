@@ -1,10 +1,10 @@
 package com.demo;
-import java.io.File;
-import java.nio.charset.Charset;
-import java.util.ArrayList;
 
 import com.csvreader.CsvReader;
 import com.csvreader.CsvWriter;
+
+import java.nio.charset.Charset;
+import java.util.ArrayList;
 
 /**
  *

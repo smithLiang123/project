@@ -1,5 +1,7 @@
 package com.demo.GUI;
 
+import com.demo.entity.user;
+
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
@@ -15,10 +17,11 @@ public class HomeGUI extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					HomeGUI frame = new HomeGUI();
+					HomeGUI frame = new HomeGUI(new user());
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -30,7 +33,7 @@ public class HomeGUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public HomeGUI() {
+	public HomeGUI(user u) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 870, 490);
 		contentPane = new JPanel();
@@ -51,7 +54,7 @@ public class HomeGUI extends JFrame {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        //打开新的窗口
-		    	HomeGUI frame = new HomeGUI();
+		    	HomeGUI frame = new HomeGUI(u);
 				frame.setVisible(true);
 				//关闭旧窗口
 		        dispose();
@@ -71,11 +74,8 @@ public class HomeGUI extends JFrame {
 		btnNewButton2.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		        //打开新的窗口
-		    	VidGUI_1 frame = new VidGUI_1();
-				frame.setVisible(true);
-				//关闭旧窗口
-		        dispose();
+		    	//some code
+				JOptionPane.showMessageDialog(null, "Developing...");  
 		    }
 		});
 		contentPane.add(btnNewButton2);
@@ -92,11 +92,8 @@ public class HomeGUI extends JFrame {
 		btnNewButton3.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		        //打开新的窗口
-		    	SaleGUI_1 frame = new SaleGUI_1();
-				frame.setVisible(true);
-				//关闭旧窗口
-		        dispose();
+		    	//some code
+				JOptionPane.showMessageDialog(null, "Developing...");  
 		    }
 		});
 		contentPane.add(btnNewButton3);
@@ -113,56 +110,106 @@ public class HomeGUI extends JFrame {
 		btnNewButton4.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		        //打开新的窗口
-		    	BookGUI_1 frame = new BookGUI_1();
-				frame.setVisible(true);
-				//关闭旧窗口
-		        dispose();
+		    	//some code
+				JOptionPane.showMessageDialog(null, "Developing...");  
 		    }
 		});
 		contentPane.add(btnNewButton4);
 		
-		/*Button: INFORMATION*/
-		JButton btnNewButton5 = new JButton("INFORMATION");
-		btnNewButton5.setForeground(Color.WHITE);
-		btnNewButton5.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		btnNewButton5.setBounds(500, 35, 145, 20);
-		//set transparent
-		btnNewButton5.setContentAreaFilled(false);//设置按钮透明
-		btnNewButton5.setBorder(null);//取消边框
-		//jump to another page
-		btnNewButton5.addActionListener(new ActionListener() {
-		    @Override
-		    public void actionPerformed(ActionEvent e) {
-		        //打开新的窗口
-		    	InfoUI frame = new InfoUI();
-				frame.setVisible(true);
-				//关闭旧窗口
-		        dispose();
-		    }
-		});
-		contentPane.add(btnNewButton5);
-		
-		/*Button: SIGN IN*/
-		JButton btnNewButton6 = new JButton("SIGN IN");
-		btnNewButton6.setForeground(Color.WHITE);
-		btnNewButton6.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		btnNewButton6.setBounds(655, 35, 90, 20);
-		//set transparent
-		btnNewButton6.setContentAreaFilled(false);//设置按钮透明
-		btnNewButton6.setBorder(null);//取消边框
-		//jump to another page
-		btnNewButton6.addActionListener(new ActionListener() {
-		    @Override
-		    public void actionPerformed(ActionEvent e) {
-		        //打开新的窗口
-		        SignGUI frame = new SignGUI();
-				frame.setVisible(true);
-				//关闭旧窗口
-		        dispose();
-		    }
-		});
-		contentPane.add(btnNewButton6);
+		//判断用户是否登陆
+		//如果未登陆，则显示register
+		if(u.getName() == null) {
+			/*Button: REGISTER*/
+			JButton btnNewButton8 = new JButton("REGISTER");
+			btnNewButton8.setForeground(Color.WHITE);
+			btnNewButton8.setFont(new Font("Times New Roman", Font.BOLD, 18));
+			btnNewButton8.setBounds(500, 35, 145, 20);
+			//set transparent
+			btnNewButton8.setContentAreaFilled(false);//设置按钮透明
+			btnNewButton8.setBorder(null);//取消边框
+			//jump to another page
+			btnNewButton8.addActionListener(new ActionListener() {
+			    @Override
+			    public void actionPerformed(ActionEvent e) {
+			        //打开新的窗口
+			    	RegisGUI frame = new RegisGUI();
+					frame.setVisible(true);
+					//关闭旧窗口
+			        dispose();
+			    }
+			});
+			contentPane.add(btnNewButton8);
+		}
+		//如果已登陆，则显示information
+		else {
+			/*Button: INFORMATION*/
+			JButton btnNewButton5 = new JButton("INFORMATION");
+			btnNewButton5.setForeground(Color.WHITE);
+			btnNewButton5.setFont(new Font("Times New Roman", Font.BOLD, 18));
+			btnNewButton5.setBounds(500, 35, 145, 20);
+			//set transparent
+			btnNewButton5.setContentAreaFilled(false);//设置按钮透明
+			btnNewButton5.setBorder(null);//取消边框
+			//jump to another page
+			btnNewButton5.addActionListener(new ActionListener() {
+			    @Override
+			    public void actionPerformed(ActionEvent e) {
+			    	//some code
+					JOptionPane.showMessageDialog(null, "Developing...");  
+			    }
+			});
+			contentPane.add(btnNewButton5);
+		}
+
+		//判断用户是否登陆
+		//如果未登陆，则显示sign in
+		if(u.getName() == null) {
+			/*Button: SIGN IN*/
+			JButton btnNewButton6 = new JButton("SIGN IN");
+			btnNewButton6.setForeground(Color.WHITE);
+			btnNewButton6.setFont(new Font("Times New Roman", Font.BOLD, 18));
+			btnNewButton6.setBounds(655, 35, 90, 20);
+			//set transparent
+			btnNewButton6.setContentAreaFilled(false);//设置按钮透明
+			btnNewButton6.setBorder(null);//取消边框
+			//jump to another page
+			btnNewButton6.addActionListener(new ActionListener() {
+			    @Override
+			    public void actionPerformed(ActionEvent e) {
+			        //打开新的窗口
+			        SignGUI frame = new SignGUI();
+					frame.setVisible(true);
+					//关闭旧窗口
+			        dispose();
+			    }
+			});
+			contentPane.add(btnNewButton6);
+		}
+		//如果已登陆，则显示welcome，且点击即可退出登陆
+		else {
+			/*Button: LOG OUT*/
+			JButton btnNewButton7 = new JButton("WELCOME " + u.getName());
+			btnNewButton7.setForeground(Color.WHITE);
+			btnNewButton7.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
+			btnNewButton7.setBounds(655, 35, 150, 20);
+			//set transparent
+			btnNewButton7.setContentAreaFilled(false);//设置按钮透明
+			btnNewButton7.setBorder(null);//取消边框
+			//jump to another page
+			btnNewButton7.addActionListener(new ActionListener() {
+			    @Override
+			    public void actionPerformed(ActionEvent e) {
+			    	//检验是否确定退出登陆
+			    	int ifLogOut = JOptionPane.showConfirmDialog(contentPane, "Are you sure you want to log out?", "LOG OUT", JOptionPane.YES_NO_CANCEL_OPTION);
+			    	if(ifLogOut == JOptionPane.YES_OPTION){
+				    	HomeGUI frame = new HomeGUI(new user());
+						frame.setVisible(true);
+				        dispose();
+			    	}
+			    }
+			});
+			contentPane.add(btnNewButton7);
+		}
 
 		/*Title*/
 		JLabel lblNewLabel_1 = new JLabel("GROUP 74's GYM");

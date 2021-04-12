@@ -16,6 +16,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="javacsv-2.1" level="project" />
+    <orderEntry type="library" exported="" name="javacsv-2.1" level="project" />
   </component>
 </module>
