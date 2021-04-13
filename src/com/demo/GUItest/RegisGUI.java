@@ -1,19 +1,35 @@
 package com.demo.GUItest;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.border.*;
+import com.demo.GUI.HomeGUI;
+import com.demo.GUI.SignGUI;
+import com.demo.entity.user;
+import com.demo.fuction.UserRegister;
 
+import javax.swing.*;
+import javax.swing.border.EmptyBorder;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+/**
+ * @author kxj
+ * @date 2021/3/31
+ * @description
+ * 注册界面前端
+ *
+ *
+ *
+ *
+ * */
 
 public class RegisGUI extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField textField;          //account
+	private JTextField textField_1;        //password
+	private JTextField textField_2;        //height
+	private JTextField textField_3;        //weight
+	private JTextField textField_4;        //birthday
 
 	/**
 	 * Launch the application.
@@ -51,11 +67,11 @@ public class RegisGUI extends JFrame {
 		btnNewButton.setContentAreaFilled(false);//设置按钮透明
 		btnNewButton.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton.addActionListener(new ActionListener() {
+		btnNewButton.addActionListener(new ActionListener() {//Home
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        //打开新的窗口
-		    	HomeGUI frame = new HomeGUI();
+		    	com.demo.GUI.HomeGUI frame = new com.demo.GUI.HomeGUI(new user());
 				frame.setVisible(true);
 				//关闭旧窗口
 		        dispose();
@@ -75,11 +91,8 @@ public class RegisGUI extends JFrame {
 		btnNewButton2.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		        //打开新的窗口
-		    	VidGUI_1 frame = new VidGUI_1();
-				frame.setVisible(true);
-				//关闭旧窗口
-		        dispose();
+		    	//some code
+				JOptionPane.showMessageDialog(null, "Developing...");  
 		    }
 		});
 		contentPane.add(btnNewButton2);
@@ -96,11 +109,8 @@ public class RegisGUI extends JFrame {
 		btnNewButton3.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		        //打开新的窗口
-		    	SaleGUI_1 frame = new SaleGUI_1();
-				frame.setVisible(true);
-				//关闭旧窗口
-		        dispose();
+		    	//some code
+				JOptionPane.showMessageDialog(null, "Developing...");  
 		    }
 		});
 		contentPane.add(btnNewButton3);
@@ -117,35 +127,32 @@ public class RegisGUI extends JFrame {
 		btnNewButton4.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		        //打开新的窗口
-		    	BookGUI_1 frame = new BookGUI_1();
-				frame.setVisible(true);
-				//关闭旧窗口
-		        dispose();
+		    	//some code
+				JOptionPane.showMessageDialog(null, "Developing...");  
 		    }
 		});
 		contentPane.add(btnNewButton4);
 		
-		/*Button: INFORMATION*/
-		JButton btnNewButton5 = new JButton("INFORMATION");
-		btnNewButton5.setForeground(Color.WHITE);
-		btnNewButton5.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		btnNewButton5.setBounds(500, 35, 145, 20);
+		/*Button: REGISTER*/
+		JButton btnNewButton8 = new JButton("REGISTER");
+		btnNewButton8.setForeground(Color.WHITE);
+		btnNewButton8.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		btnNewButton8.setBounds(500, 35, 145, 20);
 		//set transparent
-		btnNewButton5.setContentAreaFilled(false);//设置按钮透明
-		btnNewButton5.setBorder(null);//取消边框
+		btnNewButton8.setContentAreaFilled(false);//设置按钮透明
+		btnNewButton8.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton5.addActionListener(new ActionListener() {
+		btnNewButton8.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        //打开新的窗口
-		    	InfoUI frame = new InfoUI();
+		    	RegisGUI frame = new RegisGUI();
 				frame.setVisible(true);
 				//关闭旧窗口
 		        dispose();
 		    }
 		});
-		contentPane.add(btnNewButton5);
+		contentPane.add(btnNewButton8);
 		
 		/*Button: SIGN IN*/
 		JButton btnNewButton6 = new JButton("SIGN IN");
@@ -156,11 +163,11 @@ public class RegisGUI extends JFrame {
 		btnNewButton6.setContentAreaFilled(false);//设置按钮透明
 		btnNewButton6.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton6.addActionListener(new ActionListener() {
+		btnNewButton6.addActionListener(new ActionListener() {//sign in
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        //打开新的窗口
-		        SignGUI frame = new SignGUI();
+		        com.demo.GUI.SignGUI frame = new SignGUI();
 				frame.setVisible(true);
 				//关闭旧窗口
 		        dispose();
@@ -175,13 +182,13 @@ public class RegisGUI extends JFrame {
 		lblNewLabel_3.setBounds(340, 100, 180, 30);
 		contentPane.add(lblNewLabel_3);
 		
-		/*Label: Account*/
-		JLabel lblNewLabel_1 = new JLabel("Account");
+		/*Label: Phone No.*/
+		JLabel lblNewLabel_1 = new JLabel("Phone No.");
 		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		lblNewLabel_1.setForeground(Color.WHITE);
 		lblNewLabel_1.setBounds(280, 160, 110, 30);
 		contentPane.add(lblNewLabel_1);
-		/*TextField: Account*/
+		/*TextField: Phone No.*/
 		textField = new JTextField();
 		textField.setBounds(405, 165, 160, 20);
 		contentPane.add(textField);
@@ -223,13 +230,13 @@ public class RegisGUI extends JFrame {
 		textField_3.setBounds(405, 285, 160, 20);
 		contentPane.add(textField_3);
 		
-		/*Label: Birthday*/
-		JLabel lblNewLabel_2_3 = new JLabel("Birthday");
+		/*Label: Name*/
+		JLabel lblNewLabel_2_3 = new JLabel("Name");
 		lblNewLabel_2_3.setForeground(Color.WHITE);
 		lblNewLabel_2_3.setFont(new Font("Times New Roman", Font.PLAIN, 24));
 		lblNewLabel_2_3.setBounds(280, 320, 110, 30);
 		contentPane.add(lblNewLabel_2_3);
-		/*TextField: Birthday*/
+		/*TextField: Name*/
 		textField_4 = new JTextField();
 		textField_4.setColumns(10);
 		textField_4.setBounds(405, 325, 160, 20);
@@ -243,11 +250,31 @@ public class RegisGUI extends JFrame {
 		//set transparent
 		btnNewButton_1.setContentAreaFilled(false);//设置按钮透明
 		btnNewButton_1.setBorder(null);//取消边框
+		btnNewButton_1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {    //注册第一版
+				
+				String phone=textField.getText();
+				String password=textField_1.getText();
+				String height=textField_2.getText();
+				String weight=textField_3.getText();
+				String name=textField_4.getText();
+				user user=new user(phone,password,height,weight,name);
+				UserRegister userRegister=new UserRegister(user);
+				userRegister.add_user(userRegister);
+				
+		        //打开新的窗口
+		    	com.demo.GUI.HomeGUI frame = new HomeGUI(new user());
+				frame.setVisible(true);
+				//关闭旧窗口
+		        dispose();
+			}
+		});
 		contentPane.add(btnNewButton_1);
 		
 		/*Shade*/
 		JLabel lblNewLabel = new JLabel(new ImageIcon("img/shade.png"));
-		lblNewLabel.setBounds(655, 0, 90, 90);
+		lblNewLabel.setBounds(500, 0, 145, 90);
 		contentPane.add(lblNewLabel);
 		
 		/*Back ground*/
