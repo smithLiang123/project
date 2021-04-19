@@ -18,8 +18,13 @@ public class UserChange {
     String[] headers;
     CSVHelper csvHelper;
     String csvFilePath;
-    public UserChange(user user){
+    public UserChange(user user){//更改用户信息构造器
         this.user=user;
+        this.headers= new String[]{"No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone"};
+        this.csvHelper=new CSVHelper(headers,',');
+        this.csvFilePath="data//user.csv";
+    }
+    public UserChange(){
         this.headers= new String[]{"No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone"};
         this.csvHelper=new CSVHelper(headers,',');
         this.csvFilePath="data//user.csv";
@@ -30,7 +35,7 @@ public class UserChange {
      * */
 
     public static void main(String[] args) {
-        user user=new user(1,"lsm",21,"male",true,10000,"1111","18589081954","2000/01/01",85.8,180);
+        user user=new user(1234,"lsm",21,"male",true,10000,"1111","18589081954","2000/01/01",85.8,180);
         UserChange userChange=new UserChange(user);
         userChange.changeUserInfo(userChange);
     }
@@ -80,17 +85,34 @@ public class UserChange {
                  * */
             }
         }
-        writeUserInfo(userChange.user, userChange.csvHelper, userChange.csvFilePath);
+        rewriteUserInfo(UInfo,userChange);
     }
 
 
 
-
+    /**
+     * @param csvFilePath
+     * @param csvHelper
+     * @date 2021/3/31
+     * @author lsm
+     * @description
+     * 将所有的用户信息读取出来
+     * */
     public List<String[]> readUserInfo(String csvFilePath, CSVHelper csvHelper){
         List<String[]> result = csvHelper.readCSV(csvFilePath,false);
         return result;
     }
 
+    /**
+     * @param list
+     * @param phoneNumber
+     * @return 如果匹配成功返回用户信息
+     * @date 2021/3/31
+     * @author lsm
+     * @description
+     * 按用户手机号查找用户信息
+
+     * */
     public String[] find(List<String[]> list,String phoneNumber){
         for (String[] s:list){
             if (s[10].equals(phoneNumber)){
@@ -101,6 +123,18 @@ public class UserChange {
         return null;
     }
 
+    public void rewriteUserInfo(List<String[]> list,UserChange userChange){
+        userChange.csvHelper.writeCSV(userChange.csvFilePath,list);
+    }
+    /**
+     * @author lsm
+     * @date 2021/4/16
+     * @param csvHelper
+     * @param user
+     * @param csvFilePath
+     *
+     *
+     * */
     public void writeUserInfo(user user,CSVHelper csvHelper,String csvFilePath){
         List<String[]> content=new LinkedList<String[]>();
         /**

@@ -29,10 +29,6 @@ public class Window extends JFrame{
 
     EmbeddedMediaPlayerComponent playerComponent;   //媒体播放器组件
 
-    public static void main(String[] args) {
-
-    }
-
     //MainWindow构造方法，创建视屏播放的主界面
     public Window(){
         setTitle("视频播放器");
