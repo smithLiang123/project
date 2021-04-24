@@ -1,5 +1,8 @@
 package com.demo.entity;
 
+
+import java.text.SimpleDateFormat;
+
 public class user {
     /**
      * @author lsm
@@ -17,7 +20,7 @@ public class user {
         user user=new user(100,"lsm",21,"male",true,10000,"lsm12345678","18589081954","2000/01/01",85.8,180);
         System.out.println(user.user_info()[2]);
     }
-    private int no;
+    private long no;
     private String name;
     private int age;
     private String birthday;    //new    //register
@@ -29,10 +32,10 @@ public class user {
     private String password;         //register
     private String phoneNumber;      //register
 /** getter and setter   */
-    public int getNo() {
+    public long getNo() {
         return no;
     }
-    public void setNo(int no) {
+    public void setNo(long no) {
         this.no = no;
     }
     public String getName() {
@@ -111,7 +114,7 @@ public class user {
         return user;
     }/**以String[] 方式返回user属性*/
     public user(){}
-    public user(int no, String name, int age, String gender,
+    public user(long no, String name, int age, String gender,
                 boolean vip, double deposit,String password,String phoneNumber,
                  String birthday,double height,double weight){
         setNo(no);
@@ -139,10 +142,13 @@ public class user {
         this.gender="male";
         this.name=name;
         this.age=21;
-        this.no=1111;
+        this.no=generateID();
 
     }
-
+    public static long generateID(){
+        long time=System.currentTimeMillis();
+        return time;
+    }
 
     @Override
     public String toString() {

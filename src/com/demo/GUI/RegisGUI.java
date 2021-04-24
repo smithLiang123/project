@@ -320,7 +320,25 @@ public class RegisGUI extends JFrame {
 				String name=txtName.getText();
 				user user=new user(phone,password,height,weight,name);
 				UserRegister userRegister=new UserRegister(user);
-				userRegister.add_user(userRegister);
+				int status;
+				if ((status=userRegister.add_user(userRegister))==1){
+					System.out.println("good job");
+				}else if (status==7){
+					System.out.println("phone repeat");
+				}else if (status==3){
+					System.out.println("phone check wrong");
+				}else if(status==8){
+					System.out.println("name repeat");
+				}else if (status==2){
+					System.out.println("phone number can't be null");
+				}else if (status==4){
+					System.out.println("name can't be null");
+				}else if (status==5){
+					System.out.println("please enter right height");
+				}else if (status==6){
+					System.out.println("please enter right weight");
+				}
+
 				
 		        //打开新的窗口
 		    	HomeGUI frame = new HomeGUI(new user());

@@ -22,7 +22,7 @@ public class UserLogin {
         List<String[]> list= userLogin.readUserInfo(userLogin.csvFilePath, userLogin.csvHelper);
 //        for (String[] s:list){
 //            for (String x:s){
-//                System.out.print(x+" ");
+//                System.out.print(x+" ");18589081954
 //            }
 //            System.out.println();
 //        }
@@ -70,6 +70,8 @@ public class UserLogin {
         for (String[] s:list){
             if (s[10].equals(phoneNumber)){
                 return s;
+            }else if(s[0].equals(phoneNumber)){
+                return s;
             }
             System.out.println();
         }
@@ -112,7 +114,7 @@ public class UserLogin {
             if (login) {
                 System.out.println("欢迎登陆 用户："+find[1]);
                 /**以后肯定有用*/
-                user user1 = new user(Integer.parseInt(find[0]),find[1],Integer.parseInt(find[2]),find[6],Boolean.parseBoolean(find[7]),
+                user user1 = new user(Long.parseLong(find[0]),find[1],Integer.parseInt(find[2]),find[6],Boolean.parseBoolean(find[7]),
                         Double.parseDouble(find[8]),find[9],find[10],find[3],Double.parseDouble(find[4]),Double.parseDouble(find[5])
                         );
                 //登陆成功，返回有数据的user
