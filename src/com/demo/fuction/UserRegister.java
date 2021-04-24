@@ -66,6 +66,10 @@ public class UserRegister {
         csvHelper.writeCSV(csvFilePath,str);
     }
 
+    public int generateID(){
+
+        return 0;
+    }
 
 
 

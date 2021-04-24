@@ -83,9 +83,6 @@ public class UserChange {
         writeUserInfo(userChange.user, userChange.csvHelper, userChange.csvFilePath);
     }
 
-
-
-
     public List<String[]> readUserInfo(String csvFilePath, CSVHelper csvHelper){
         List<String[]> result = csvHelper.readCSV(csvFilePath,false);
         return result;
@@ -102,7 +99,7 @@ public class UserChange {
     }
 
     public void writeUserInfo(user user,CSVHelper csvHelper,String csvFilePath){
-        List<String[]> content=new LinkedList<String[]>();
+        List<String[]> content=new LinkedList<>();
         /**
          * 各个属性存储的顺序：1.号码 2.姓名 3.年龄 4.生日 5.身高 6.体重 7.性别 8.是否是VIP 9.存款 10.密码 11.电话号码
          * */

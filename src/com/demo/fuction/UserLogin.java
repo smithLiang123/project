@@ -32,7 +32,6 @@ public class UserLogin {
         System.out.println("请输入密码");
         String passWord=scanner.nextLine();
 
-
             String[] find = userLogin.find(list, PN);
             if (find != null) {
                 boolean login = userLogin.match(find, passWord);

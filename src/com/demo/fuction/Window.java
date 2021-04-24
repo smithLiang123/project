@@ -7,6 +7,11 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+
+import com.demo.GUI.HomeGUI;
+import com.demo.GUI.VidGUI_1;
+import com.demo.entity.user;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
@@ -16,26 +21,21 @@ public class Window extends JFrame{
 
     private JPanel contentPane; //顶层容器，整个播放页面的容器
     private JMenuBar menuBar;   //菜单栏
-    private JMenu mnFile,mnSetting,mnHelp;  //文件菜单
-    private JMenuItem mnOpenVideo,mnExit;   //文件菜单子目录，打开视屏、退出
+    private JButton backBtn;	//返回
     private JPanel panel;   //控制区域容器
     private JProgressBar progress;  //进度条
     private JPanel progressPanel;   //进度条容器
     private JPanel controlPanel;    //控制按钮容器
-    private JButton btnStop,btnPlay,btnPause;   //控制按钮，停止、播放、暂停
+    private JButton btnPlay,btnPause,vol;   //控制按钮，停止、播放、暂停、音量图标
     private JSlider slider;     //声音控制块
     private  Timer  timer ;
 
 
     EmbeddedMediaPlayerComponent playerComponent;   //媒体播放器组件
 
-    public static void main(String[] args) {
-
-    }
-
     //MainWindow构造方法，创建视屏播放的主界面
-    public Window(){
-        setTitle("视频播放器");
+    public Window(user u){
+        setTitle("ViDEO");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(200,80,900,600);
         contentPane=new JPanel();
@@ -47,45 +47,27 @@ public class Window extends JFrame{
         menuBar=new JMenuBar();
         setJMenuBar(menuBar);
 
-        mnFile=new JMenu("文件");     //设置菜单名
-        menuBar.add(mnFile);
-        mnSetting=new JMenu("设置");
-        menuBar.add(mnSetting);
-        mnHelp=new JMenu("帮助");
-        menuBar.add(mnHelp);
+        backBtn=new JButton("Back");     //设置菜单名
+        menuBar.add(backBtn);
 
-        mnOpenVideo =new JMenuItem("打开文件"); //设置文件菜单子目录打开文件
-        mnFile.add(mnOpenVideo);
-
-        mnExit =new JMenuItem("退出");    //设置文件菜单子目录退出
-        mnFile.add(mnExit);
-
-
-        //打开文件  ,这里最好做一个文件过滤，只选择相关视频文件；
-        mnOpenVideo.addActionListener(new ActionListener() {
-
+        //返回按钮
+        backBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
-                JFileChooser chooser = new JFileChooser();
-                int v = chooser.showOpenDialog(null);
-                if (v == JFileChooser.APPROVE_OPTION) {
-                    File file = chooser.getSelectedFile();
-                    getMediaPlayer().playMedia(file.getAbsolutePath());
+            	
+            	//停止视频
+                getMediaPlayer().stop();
+                if(timer.isRunning()) {
+                    timer.stop();//停止；
                 }
+                getProgressBar().setValue(-1);
+                
+                //返回video界面
+                VidGUI_1 frame = new VidGUI_1(u);
+				frame.setVisible(true);
+		        dispose();
             }
         });
-
-        //退出
-        mnExit.addActionListener(new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                // TODO Auto-generated method stub
-                exitActionPerformed();
-            }
-        });
-
 
         /*视屏窗口中播放界面部分*/
         JPanel videoPane=new JPanel();
@@ -123,24 +105,8 @@ public class Window extends JFrame{
         controlPanel=new JPanel();      //实例化控制按钮容器
         panel.add(controlPanel,BorderLayout.SOUTH);
 
-        //添加停止按钮
-        btnStop=new JButton("停止");
-        btnStop.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                // TODO Auto-generated method stub
-                getMediaPlayer().stop();
-                if(timer.isRunning()) {
-                    timer.stop();//停止；
-
-                }
-                getProgressBar().setValue(-1);
-            }
-        });
-        controlPanel.add(btnStop);
-
         //添加播放按钮
-        btnPlay=new JButton("播放");
+        btnPlay=new JButton("▶");
         btnPlay.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -155,7 +121,8 @@ public class Window extends JFrame{
         controlPanel.add(btnPlay);
 
         //添加暂停按钮
-        btnPause=new JButton("暂停");
+        btnPause=new JButton("||");
+        btnPause.setFont(new Font("宋体", Font.BOLD, 12));
         btnPause.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -165,6 +132,12 @@ public class Window extends JFrame{
             }
         });
         controlPanel.add(btnPause);
+        
+        //扬声器图标
+        vol=new JButton("  🔊");
+        vol.setContentAreaFilled(false);//设置按钮透明
+        vol.setBorder(null);//取消边框
+        controlPanel.add(vol);
 
         //添加声音控制块
         slider=new JSlider();

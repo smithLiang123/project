@@ -5,8 +5,7 @@ import com.demo.entity.user;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 
 public class HomeGUI extends JFrame {
@@ -41,16 +40,17 @@ public class HomeGUI extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+/*MENU BAR*/		
 		/*Button: HOME*/
-		JButton btnNewButton = new JButton("HOME");
-		btnNewButton.setForeground(Color.WHITE);
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		btnNewButton.setBounds(110, 35, 90, 20);
+		JButton btnHome = new JButton("HOME");
+		btnHome.setForeground(Color.WHITE);
+		btnHome.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		btnHome.setBounds(110, 35, 90, 20);
 		//set transparent
-		btnNewButton.setContentAreaFilled(false);//设置按钮透明
-		btnNewButton.setBorder(null);//取消边框
+		btnHome.setContentAreaFilled(false);//设置按钮透明
+		btnHome.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton.addActionListener(new ActionListener() {
+		btnHome.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		        //打开新的窗口
@@ -60,75 +60,108 @@ public class HomeGUI extends JFrame {
 		        dispose();
 		    }
 		});
-		contentPane.add(btnNewButton);
+		//btn change color
+		btnHome.addMouseListener(new MouseListener() {
+			    public void mouseClicked(MouseEvent e) {}
+				public void mouseEntered(MouseEvent e) {btnHome.setForeground(Color.YELLOW);}
+				public void mouseExited(MouseEvent e) {btnHome.setForeground(Color.WHITE);}
+				public void mousePressed(MouseEvent e) {}
+				public void mouseReleased(MouseEvent e) {}
+		});
+		contentPane.add(btnHome);
 		
 		/*Button: VIDEO*/
-		JButton btnNewButton2 = new JButton("VIDEO");
-		btnNewButton2.setForeground(Color.WHITE);
-		btnNewButton2.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		btnNewButton2.setBounds(210, 35, 90, 20);
+		JButton btnVid = new JButton("VIDEO");
+		btnVid.setForeground(Color.WHITE);
+		btnVid.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		btnVid.setBounds(210, 35, 90, 20);
 		//set transparent
-		btnNewButton2.setContentAreaFilled(false);//设置按钮透明
-		btnNewButton2.setBorder(null);//取消边框
+		btnVid.setContentAreaFilled(false);//设置按钮透明
+		btnVid.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton2.addActionListener(new ActionListener() {
+		btnVid.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		    	//some code
-				JOptionPane.showMessageDialog(null, "Developing...");  
+		        //打开新的窗口
+		    	VidGUI_1 frame = new VidGUI_1(u);
+				frame.setVisible(true);
+				//关闭旧窗口
+		        dispose();
 		    }
 		});
-		contentPane.add(btnNewButton2);
+		//btn change color
+		btnVid.addMouseListener(new MouseListener() {
+			    public void mouseClicked(MouseEvent e) {}
+				public void mouseEntered(MouseEvent e) {btnVid.setForeground(Color.YELLOW);}
+				public void mouseExited(MouseEvent e) {btnVid.setForeground(Color.WHITE);}
+				public void mousePressed(MouseEvent e) {}
+				public void mouseReleased(MouseEvent e) {}
+		});
+		contentPane.add(btnVid);
 		
-		/*Button: SALES*/
-		JButton btnNewButton3 = new JButton("SALES");
-		btnNewButton3.setForeground(Color.WHITE);
-		btnNewButton3.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		btnNewButton3.setBounds(305, 35, 90, 20);
+		/*Button: VIP*/
+		JButton btnVIP = new JButton("VIP");
+		btnVIP.setForeground(Color.WHITE);
+		btnVIP.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		btnVIP.setBounds(305, 35, 90, 20);
 		//set transparent
-		btnNewButton3.setContentAreaFilled(false);//设置按钮透明
-		btnNewButton3.setBorder(null);//取消边框
+		btnVIP.setContentAreaFilled(false);//设置按钮透明
+		btnVIP.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton3.addActionListener(new ActionListener() {
+		btnVIP.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		    	//some code
-				JOptionPane.showMessageDialog(null, "Developing...");  
 		    }
 		});
-		contentPane.add(btnNewButton3);
+		//btn change color
+		btnVIP.addMouseListener(new MouseListener() {
+			    public void mouseClicked(MouseEvent e) {}
+				public void mouseEntered(MouseEvent e) {btnVIP.setForeground(Color.YELLOW);}
+				public void mouseExited(MouseEvent e) {btnVIP.setForeground(Color.WHITE);}
+				public void mousePressed(MouseEvent e) {}
+				public void mouseReleased(MouseEvent e) {}
+		});
+		contentPane.add(btnVIP);
 		
-		/*Button: BOOK*/
-		JButton btnNewButton4 = new JButton("BOOK");
-		btnNewButton4.setForeground(Color.WHITE);
-		btnNewButton4.setFont(new Font("Times New Roman", Font.BOLD, 18));
-		btnNewButton4.setBounds(405, 35, 90, 20);
+		/*Button: COACH*/
+		JButton btnCoa = new JButton("COACH");
+		btnCoa.setForeground(Color.WHITE);
+		btnCoa.setFont(new Font("Times New Roman", Font.BOLD, 18));
+		btnCoa.setBounds(400, 35, 90, 20);
 		//set transparent
-		btnNewButton4.setContentAreaFilled(false);//设置按钮透明
-		btnNewButton4.setBorder(null);//取消边框
+		btnCoa.setContentAreaFilled(false);//设置按钮透明
+		btnCoa.setBorder(null);//取消边框
 		//jump to another page
-		btnNewButton4.addActionListener(new ActionListener() {
+		btnCoa.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
 		    	//some code
-				JOptionPane.showMessageDialog(null, "Developing...");  
 		    }
 		});
-		contentPane.add(btnNewButton4);
+		//btn change color
+		btnCoa.addMouseListener(new MouseListener() {
+			    public void mouseClicked(MouseEvent e) {}
+				public void mouseEntered(MouseEvent e) {btnCoa.setForeground(Color.YELLOW);}
+				public void mouseExited(MouseEvent e) {btnCoa.setForeground(Color.WHITE);}
+				public void mousePressed(MouseEvent e) {}
+				public void mouseReleased(MouseEvent e) {}
+		});
+		contentPane.add(btnCoa);
 		
 		//判断用户是否登陆
 		//如果未登陆，则显示register
 		if(u.getName() == null) {
 			/*Button: REGISTER*/
-			JButton btnNewButton8 = new JButton("REGISTER");
-			btnNewButton8.setForeground(Color.WHITE);
-			btnNewButton8.setFont(new Font("Times New Roman", Font.BOLD, 18));
-			btnNewButton8.setBounds(500, 35, 145, 20);
+			JButton btnReg = new JButton("REGISTER");
+			btnReg.setForeground(Color.WHITE);
+			btnReg.setFont(new Font("Times New Roman", Font.BOLD, 18));
+			btnReg.setBounds(500, 35, 145, 20);
 			//set transparent
-			btnNewButton8.setContentAreaFilled(false);//设置按钮透明
-			btnNewButton8.setBorder(null);//取消边框
+			btnReg.setContentAreaFilled(false);//设置按钮透明
+			btnReg.setBorder(null);//取消边框
 			//jump to another page
-			btnNewButton8.addActionListener(new ActionListener() {
+			btnReg.addActionListener(new ActionListener() {
 			    @Override
 			    public void actionPerformed(ActionEvent e) {
 			        //打开新的窗口
@@ -138,42 +171,57 @@ public class HomeGUI extends JFrame {
 			        dispose();
 			    }
 			});
-			contentPane.add(btnNewButton8);
+			//btn change color
+			btnReg.addMouseListener(new MouseListener() {
+				    public void mouseClicked(MouseEvent e) {}
+					public void mouseEntered(MouseEvent e) {btnReg.setForeground(Color.YELLOW);}
+					public void mouseExited(MouseEvent e) {btnReg.setForeground(Color.WHITE);}
+					public void mousePressed(MouseEvent e) {}
+					public void mouseReleased(MouseEvent e) {}
+			});
+			contentPane.add(btnReg);
 		}
 		//如果已登陆，则显示information
 		else {
 			/*Button: INFORMATION*/
-			JButton btnNewButton5 = new JButton("INFORMATION");
-			btnNewButton5.setForeground(Color.WHITE);
-			btnNewButton5.setFont(new Font("Times New Roman", Font.BOLD, 18));
-			btnNewButton5.setBounds(500, 35, 145, 20);
+			JButton btnInf = new JButton("INFORMATION");
+			btnInf.setForeground(Color.WHITE);
+			btnInf.setFont(new Font("Times New Roman", Font.BOLD, 18));
+			btnInf.setBounds(505, 35, 145, 20);
 			//set transparent
-			btnNewButton5.setContentAreaFilled(false);//设置按钮透明
-			btnNewButton5.setBorder(null);//取消边框
+			btnInf.setContentAreaFilled(false);//设置按钮透明
+			btnInf.setBorder(null);//取消边框
 			//jump to another page
-			btnNewButton5.addActionListener(new ActionListener() {
+			btnInf.addActionListener(new ActionListener() {
 			    @Override
 			    public void actionPerformed(ActionEvent e) {
 			    	//some code
-					JOptionPane.showMessageDialog(null, "Developing...");  
 			    }
 			});
-			contentPane.add(btnNewButton5);
+			//btn change color
+			btnInf.addMouseListener(new MouseListener() {
+				    public void mouseClicked(MouseEvent e) {}
+					public void mouseEntered(MouseEvent e) {btnInf.setForeground(Color.YELLOW);}
+					public void mouseExited(MouseEvent e) {btnInf.setForeground(Color.WHITE);}
+					public void mousePressed(MouseEvent e) {}
+					public void mouseReleased(MouseEvent e) {}
+			});
+			contentPane.add(btnInf);
 		}
 
 		//判断用户是否登陆
 		//如果未登陆，则显示sign in
 		if(u.getName() == null) {
 			/*Button: SIGN IN*/
-			JButton btnNewButton6 = new JButton("SIGN IN");
-			btnNewButton6.setForeground(Color.WHITE);
-			btnNewButton6.setFont(new Font("Times New Roman", Font.BOLD, 18));
-			btnNewButton6.setBounds(655, 35, 90, 20);
+			JButton btnSig = new JButton("SIGN IN");
+			btnSig.setForeground(Color.WHITE);
+			btnSig.setFont(new Font("Times New Roman", Font.BOLD, 18));
+			btnSig.setBounds(655, 35, 90, 20);
 			//set transparent
-			btnNewButton6.setContentAreaFilled(false);//设置按钮透明
-			btnNewButton6.setBorder(null);//取消边框
+			btnSig.setContentAreaFilled(false);//设置按钮透明
+			btnSig.setBorder(null);//取消边框
 			//jump to another page
-			btnNewButton6.addActionListener(new ActionListener() {
+			btnSig.addActionListener(new ActionListener() {
 			    @Override
 			    public void actionPerformed(ActionEvent e) {
 			        //打开新的窗口
@@ -183,20 +231,28 @@ public class HomeGUI extends JFrame {
 			        dispose();
 			    }
 			});
-			contentPane.add(btnNewButton6);
+			//btn change color
+			btnSig.addMouseListener(new MouseListener() {
+				    public void mouseClicked(MouseEvent e) {}
+					public void mouseEntered(MouseEvent e) {btnSig.setForeground(Color.YELLOW);}
+					public void mouseExited(MouseEvent e) {btnSig.setForeground(Color.WHITE);}
+					public void mousePressed(MouseEvent e) {}
+					public void mouseReleased(MouseEvent e) {}
+			});
+			contentPane.add(btnSig);
 		}
 		//如果已登陆，则显示welcome，且点击即可退出登陆
 		else {
 			/*Button: LOG OUT*/
-			JButton btnNewButton7 = new JButton("WELCOME " + u.getName());
-			btnNewButton7.setForeground(Color.WHITE);
-			btnNewButton7.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
-			btnNewButton7.setBounds(655, 35, 150, 20);
+			JButton btnLogO = new JButton("WELCOME " + u.getName());
+			btnLogO.setForeground(Color.WHITE);
+			btnLogO.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 18));
+			btnLogO.setBounds(655, 35, 150, 20);
 			//set transparent
-			btnNewButton7.setContentAreaFilled(false);//设置按钮透明
-			btnNewButton7.setBorder(null);//取消边框
+			btnLogO.setContentAreaFilled(false);//设置按钮透明
+			btnLogO.setBorder(null);//取消边框
 			//jump to another page
-			btnNewButton7.addActionListener(new ActionListener() {
+			btnLogO.addActionListener(new ActionListener() {
 			    @Override
 			    public void actionPerformed(ActionEvent e) {
 			    	//检验是否确定退出登陆
@@ -208,32 +264,41 @@ public class HomeGUI extends JFrame {
 			    	}
 			    }
 			});
-			contentPane.add(btnNewButton7);
+			//btn change color
+			btnLogO.addMouseListener(new MouseListener() {
+				    public void mouseClicked(MouseEvent e) {}
+					public void mouseEntered(MouseEvent e) {btnLogO.setForeground(Color.YELLOW);}
+					public void mouseExited(MouseEvent e) {btnLogO.setForeground(Color.WHITE);}
+					public void mousePressed(MouseEvent e) {}
+					public void mouseReleased(MouseEvent e) {}
+			});
+			contentPane.add(btnLogO);
 		}
-
+/*MENU BAR END*/
+		
 		/*Title*/
-		JLabel lblNewLabel_1 = new JLabel("GROUP 74's GYM");
-		lblNewLabel_1.setForeground(Color.WHITE);
-		lblNewLabel_1.setFont(new Font("Times New Roman", Font.BOLD, 24));
-		lblNewLabel_1.setBounds(170, 230, 210, 40);
-		contentPane.add(lblNewLabel_1);
+		JLabel lblTit = new JLabel("GROUP 74's GYM");
+		lblTit.setForeground(Color.WHITE);
+		lblTit.setFont(new Font("Times New Roman", Font.BOLD, 24));
+		lblTit.setBounds(170, 230, 210, 40);
+		contentPane.add(lblTit);
 		
 		/*Sub-title*/
-		JLabel lblNewLabel_2 = new JLabel("THE BEST GYM YOU HAVE EVER SEEN");
-		lblNewLabel_2.setForeground(Color.WHITE);
-		lblNewLabel_2.setFont(new Font("等线", Font.PLAIN, 18));
-		lblNewLabel_2.setBounds(120, 310, 300, 51);
-		contentPane.add(lblNewLabel_2);
+		JLabel lblTit2 = new JLabel("THE BEST GYM YOU HAVE EVER SEEN");
+		lblTit2.setForeground(Color.WHITE);
+		lblTit2.setFont(new Font("等线", Font.PLAIN, 18));
+		lblTit2.setBounds(120, 310, 300, 51);
+		contentPane.add(lblTit2);
 		
 		/*Shade*/
-		JLabel lblNewLabel = new JLabel(new ImageIcon("img/shade.png"));
-		lblNewLabel.setBounds(110, 0, 90, 90);
-		contentPane.add(lblNewLabel);
+		JLabel lblSha = new JLabel(new ImageIcon("img/shade.png"));
+		lblSha.setBounds(110, 0, 90, 90);
+		contentPane.add(lblSha);
 		
 		/*Back ground*/
-		JLabel lblNewLabel2 = new JLabel(new ImageIcon("img/home-bg.jpg"));
-		lblNewLabel2.setBounds(0, 0, 870, 490);
-		contentPane.add(lblNewLabel2);
+		JLabel lblBg = new JLabel(new ImageIcon("img/home-bg.jpg"));
+		lblBg.setBounds(0, 0, 870, 490);
+		contentPane.add(lblBg);
 
 	}
 }
