@@ -334,9 +334,9 @@ public class RegisGUI extends JFrame {
 				}else if (status==4){
 					System.out.println("name can't be null");
 				}else if (status==5){
-					System.out.println("please enter right height");
+					System.out.println("please enter logical height");
 				}else if (status==6){
-					System.out.println("please enter right weight");
+					System.out.println("please enter rational weight");
 				}
 
 				
