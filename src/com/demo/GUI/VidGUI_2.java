@@ -137,7 +137,11 @@ public class VidGUI_2 extends JFrame {
 		btnCoa.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		    	//some code
+		    	//打开新的窗口
+		    	CohGUI_1 frame = new CohGUI_1(u);
+				frame.setVisible(true);
+				//关闭旧窗口
+		        dispose();
 		    }
 		});
 		//btn change color
@@ -268,8 +272,8 @@ public class VidGUI_2 extends JFrame {
 			//btn change color
 			btnLogO.addMouseListener(new MouseListener() {
 				    public void mouseClicked(MouseEvent e) {}
-					public void mouseEntered(MouseEvent e) {btnLogO.setForeground(Color.YELLOW);}
-					public void mouseExited(MouseEvent e) {btnLogO.setForeground(Color.WHITE);}
+				    public void mouseEntered(MouseEvent e) {btnLogO.setForeground(Color.YELLOW);btnLogO.setText("Log Out");}
+					public void mouseExited(MouseEvent e) {btnLogO.setForeground(Color.WHITE);btnLogO.setText("WELCOME " + u.getName());}
 					public void mousePressed(MouseEvent e) {}
 					public void mouseReleased(MouseEvent e) {}
 			});

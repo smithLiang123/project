@@ -136,7 +136,11 @@ public class HomeGUI extends JFrame {
 		btnCoa.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		    	//some code
+		    	//打开新的窗口
+		    	CohGUI_1 frame = new CohGUI_1(u);
+				frame.setVisible(true);
+				//关闭旧窗口
+		        dispose();
 		    }
 		});
 		//btn change color
@@ -267,8 +271,8 @@ public class HomeGUI extends JFrame {
 			//btn change color
 			btnLogO.addMouseListener(new MouseListener() {
 				    public void mouseClicked(MouseEvent e) {}
-					public void mouseEntered(MouseEvent e) {btnLogO.setForeground(Color.YELLOW);}
-					public void mouseExited(MouseEvent e) {btnLogO.setForeground(Color.WHITE);}
+					public void mouseEntered(MouseEvent e) {btnLogO.setForeground(Color.YELLOW);btnLogO.setText("Log Out");}
+					public void mouseExited(MouseEvent e) {btnLogO.setForeground(Color.WHITE);btnLogO.setText("WELCOME " + u.getName());}
 					public void mousePressed(MouseEvent e) {}
 					public void mouseReleased(MouseEvent e) {}
 			});
@@ -287,8 +291,23 @@ public class HomeGUI extends JFrame {
 		JLabel lblTit2 = new JLabel("THE BEST GYM YOU HAVE EVER SEEN");
 		lblTit2.setForeground(Color.WHITE);
 		lblTit2.setFont(new Font("等线", Font.PLAIN, 18));
-		lblTit2.setBounds(120, 310, 300, 51);
+		lblTit2.setBounds(120, 310, 300, 50);
 		contentPane.add(lblTit2);
+		
+		/*About us*/
+		JLabel lblAbUs = new JLabel("<html><body>"
+									+ "<h1>About us</h1>"
+									+ "<p>The environment of the gymnasium is elegant, clean and well ventilated. The whole club shows youth, passion and dynamic atmosphere. The aim of sports club is \"I exercise, I am healthy, I am happy\". At the same time, professional coaches are employed to guide the members to keep fit scientifically and guide the correct idea of keeping fit.</p>"
+								+ "</body></html>");
+		lblAbUs.setForeground(Color.WHITE);
+		lblAbUs.setFont(new Font("等线", Font.PLAIN, 18));
+		lblAbUs.setBounds(445, 90, 350, 350);
+		contentPane.add(lblAbUs);
+		
+		/*Shade*/
+		JLabel lblAbUsSha = new JLabel(new ImageIcon("img/shade2.png"));
+		lblAbUsSha.setBounds(435, 150, 365, 250);
+		contentPane.add(lblAbUsSha);
 		
 		/*Shade*/
 		JLabel lblSha = new JLabel(new ImageIcon("img/shade.png"));

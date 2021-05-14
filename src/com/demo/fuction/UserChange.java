@@ -30,9 +30,9 @@ public class UserChange {
      * */
 
     public static void main(String[] args) {
-        user user=new user(1,"lsm",21,"male",true,10000,"1111","18589081954","2000/01/01",85.8,180);
-        UserChange userChange=new UserChange(user);
-        userChange.changeUserInfo(userChange);
+//        user user=new user(1,"lsm",21,"male",true,10000,"1111","18589081954","2000/01/01",85.8,180);
+//        UserChange userChange=new UserChange(user);
+//        userChange.changeUserInfo(userChange);
     }
 
 

@@ -9,16 +9,12 @@ public class user {
      * @date 2021/4/1
      * @description User:
      *             No;name;birthday;gender;vip;deposit;height;weight;password;PhoneNumber;
-     *
-     *
-     *
-     *
-     *
+     *             "coh1","coh2","coh3";//预约的3个教练
      * */
 
     public static void main(String[] args) {
-        user user=new user(100,"lsm",21,"male",true,10000,"lsm12345678","18589081954","2000/01/01",85.8,180);
-        System.out.println(user.user_info()[2]);
+//        user user=new user(100,"lsm",21,"male",true,10000,"lsm12345678","18589081954","2000/01/01",85.8,180);
+//        System.out.println(user.user_info()[2]);
     }
     private long no;
     private String name;
@@ -31,6 +27,10 @@ public class user {
     private double deposit;                  //default    0.0
     private String password;         //register
     private String phoneNumber;      //register
+    private String coh1;
+    private String coh2;
+    private String coh3;
+    
 /** getter and setter   */
     public long getNo() {
         return no;
@@ -98,8 +98,28 @@ public class user {
     public void setWeight(double weight) {
         this.weight = weight;
     }
-    public String[] user_info(){
-        String[] user=new String[11];
+    public String getCoh1() {
+		return coh1;
+	}
+	public void setCoh1(String coh1) {
+		this.coh1 = coh1;
+	}
+	public String getCoh2() {
+		return coh2;
+	}
+	public void setCoh2(String coh2) {
+		this.coh2 = coh2;
+	}
+	public String getCoh3() {
+		return coh3;
+	}
+	public void setCoh3(String coh3) {
+		this.coh3 = coh3;
+	}
+	
+	
+	public String[] user_info(){
+        String[] user=new String[14];
         user[0]=""+this.no;
         user[1]=""+this.name;//"No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone"
         user[2]=""+this.age;
@@ -111,12 +131,18 @@ public class user {
         user[8]=""+this.deposit;
         user[9]=""+this.password;
         user[10]=""+this.phoneNumber;
+        user[11]=""+this.coh1;
+        user[12]=""+this.coh2;
+        user[13]=""+this.coh3;
         return user;
     }/**以String[] 方式返回user属性*/
+	
+	
     public user(){}
-    public user(long no, String name, int age, String gender,
+
+    public user(long no, String name, int age, String birthday,double height,double weight,String gender,
                 boolean vip, double deposit,String password,String phoneNumber,
-                 String birthday,double height,double weight){
+                 String coh1,String coh2,String coh3){
         setNo(no);
         setName(name);
         setAge(age);
@@ -128,8 +154,12 @@ public class user {
         setBirthday(birthday);
         setHeight(height);
         setWeight(weight);
+        setCoh1(coh1);
+        setCoh2(coh2);
+        setCoh3(coh3);
     }
-    public user(String phoneNumber,String password,String Height,String Weight,String name){
+
+    public user(String phoneNumber,String password,String Height,String Weight,String name,String coh1,String coh2,String coh3){
         this.phoneNumber=phoneNumber;
         this.password=password;
         this.height=Double.parseDouble(Height);
@@ -137,16 +167,20 @@ public class user {
         this.birthday=null;
         this.vip=false;
         this.deposit=0.0d;
-
-
         this.gender="male";
         this.name=name;
         this.age=21;
         this.no=generateID();
+        this.coh1="x00000000";//首位x是占位符
+        this.coh2="x00000000";
+        this.coh3="x00000000";
+        
+        
 
     }
     public static long generateID(){
-        long time=System.currentTimeMillis();
+        //long time=System.currentTimeMillis();
+    	long time = Math.round((Math.random()+1) * 1000);
         return time;
     }
 
@@ -164,6 +198,9 @@ public class user {
                 ", deposit=" + deposit +
                 ", password='" + password + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
+                ", coh1='" + coh1 + '\'' +
+                ", coh1='" + coh2 + '\'' +
+                ", coh1='" + coh3 + '\'' +
                 '}';
     }
 }

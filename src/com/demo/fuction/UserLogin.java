@@ -114,10 +114,20 @@ public class UserLogin {
             if (login) {
                 System.out.println("欢迎登陆 用户："+find[1]);
                 /**以后肯定有用*/
-                user user1 = new user(Long.parseLong(find[0]),find[1],Integer.parseInt(find[2]),find[6],Boolean.parseBoolean(find[7]),
-                        Double.parseDouble(find[8]),find[9],find[10],find[3],Double.parseDouble(find[4]),Double.parseDouble(find[5])
-                        );
-                //登陆成功，返回有数据的user
+		//              user user1 = new user(Long.parseLong(find[0]),find[1],Integer.parseInt(find[2]),find[6],Boolean.parseBoolean(find[7]),
+		//              Double.parseDouble(find[8]),find[9],find[10],find[3],Double.parseDouble(find[4]),
+		//              find[10],find[11],find[12]);
+		//      登陆成功，返回有数据的user
+                user user1 = new user(Long.parseLong(find[0]),
+				                		find[1],
+				                		Integer.parseInt(find[2]),
+				                		find[3],
+				                		Double.parseDouble(find[4]),
+				                		Double.parseDouble(find[5]),
+				                		find[6],
+				                		Boolean.parseBoolean(find[7]),
+				                		Double.parseDouble(find[8]),
+				                		find[9],find[10],find[11],find[12],find[13]);
                 return user1;
             }
         }
@@ -126,8 +136,8 @@ public class UserLogin {
  *                 boolean vip5, double deposit6,String password7,String phoneNumber8,
  *                  String birthday9,double height10,double weight11
  *
- * "No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone"
- *  0        1      2       3        4         5        6         7       8         9          10
+ * "No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone","coh1","coh1","coh1"
+ *  0        1      2       3        4         5        6         7       8         9          10	  11	 12		13
  * */
 
         //登陆失败，返回没有数据的user

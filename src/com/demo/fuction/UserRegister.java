@@ -11,12 +11,12 @@ public class UserRegister {
     CSVHelper csvHelper;
     String csvFilePath;
     public UserRegister(){
-        this.headers= new String[]{"No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone"};
+        this.headers= new String[]{"No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone","coh1","coh2","coh3"};
         this.csvHelper=new CSVHelper(headers,',');
         this.csvFilePath="data//user.csv";
     }/**无参默认构造器*/
     public UserRegister(user user){
-        this.headers= new String[]{"No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone"};
+        this.headers= new String[]{"No.", "Name", "Age","Birthday","Height","Weight", "Gender", "vip", "Deposit","Password","Phone","coh1","coh2","coh3"};
         this.csvHelper=new CSVHelper(headers,',');
         this.csvFilePath="data//user.csv";
         this.user=user;
@@ -59,15 +59,15 @@ public class UserRegister {
     public int add_user(UserRegister userRegister)  {
         List<String[]> old=csvHelper.readCSV(this.csvFilePath,false);
         com.demo.entity.user raw=userRegister.user;
-        if (raw.getPhoneNumber()==null){
-            return 2;
-        }
+//        if (raw.getPhoneNumber()==null){
+//            return 2;
+//        }
         if (userRegister.PhoneCheck(raw.getPhoneNumber())){
             return 3;
         }
-        if (raw.getName()==null){
-            return 4;
-        }
+//        if (raw.getName()==null){
+//            return 4;
+//        }
         if (raw.getHeight()<40||raw.getHeight()>230){
             return 5;
         }

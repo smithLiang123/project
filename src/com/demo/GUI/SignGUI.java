@@ -141,7 +141,11 @@ public class SignGUI extends JFrame {
 		btnCoa.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		    	//some code
+		    	//打开新的窗口
+		    	CohGUI_1 frame = new CohGUI_1(new user());
+				frame.setVisible(true);
+				//关闭旧窗口
+		        dispose();
 		    }
 		});
 		//btn change color
@@ -250,20 +254,25 @@ public class SignGUI extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				//登陆信息比对
-				String phone=txtPho.getText();     //textField是手机号
-				String password=txtPwd.getText();  //textField_1是密码
+				String phone=txtPho.getText();     //txtPho是手机号
+				String password=txtPwd.getText();  //txtPwd是密码
 				UserLogin userLogin=new UserLogin();
 				user u = userLogin.user_login(phone,password);
 
 				if(u.getName() == null) {
 					JOptionPane.showConfirmDialog(contentPane, "The Phone number or Password you entered is incorrect",
 							"Login failed", JOptionPane.ERROR_MESSAGE);
+			        //登陆不成功刷新登陆界面
+			        SignGUI frame = new SignGUI();
+					frame.setVisible(true);
+			        dispose();
 				}
-		        //打开新的窗口
-		    	HomeGUI frame = new HomeGUI(u);
-				frame.setVisible(true);
-				//关闭旧窗口
-		        dispose();
+				//登陆成功以后进入主页
+				else {
+			    	HomeGUI frame = new HomeGUI(u);
+					frame.setVisible(true);
+			        dispose();
+				}
 			}
 		});
 		//btn change color

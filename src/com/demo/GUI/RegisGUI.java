@@ -154,7 +154,11 @@ public class RegisGUI extends JFrame {
 		btnCoa.addActionListener(new ActionListener() {
 		    @Override
 		    public void actionPerformed(ActionEvent e) {
-		    	//some code
+		    	//打开新的窗口
+		    	CohGUI_1 frame = new CohGUI_1(new user());
+				frame.setVisible(true);
+				//关闭旧窗口
+		        dispose();
 		    }
 		});
 		//btn change color
@@ -318,33 +322,51 @@ public class RegisGUI extends JFrame {
 				String height=txtHei.getText();
 				String weight=txtWei.getText();
 				String name=txtName.getText();
-				user user=new user(phone,password,height,weight,name);
-				UserRegister userRegister=new UserRegister(user);
-				int status;
-				if ((status=userRegister.add_user(userRegister))==1){
-					System.out.println("good job");
-				}else if (status==7){
-					System.out.println("phone repeat");
-				}else if (status==3){
-					System.out.println("phone check wrong");
-				}else if(status==8){
-					System.out.println("name repeat");
-				}else if (status==2){
-					System.out.println("phone number can't be null");
-				}else if (status==4){
-					System.out.println("name can't be null");
-				}else if (status==5){
-					System.out.println("please enter logical height");
-				}else if (status==6){
-					System.out.println("please enter rational weight");
-				}
-
 				
-		        //打开新的窗口
-		    	HomeGUI frame = new HomeGUI(new user());
-				frame.setVisible(true);
-				//关闭旧窗口
-		        dispose();
+				if(phone.equals("")||password.equals("")||height.equals("")||
+						weight.equals("")||name.equals("")) {
+					JOptionPane.showMessageDialog(null, "Information can not be empty!");
+				}
+				else{
+					user user=new user(phone,password,height,weight,name,"coh1","coh2","coh3");
+					UserRegister userRegister=new UserRegister(user);
+					int status;
+					status=userRegister.add_user(userRegister);
+					
+					if (status==1){
+						//System.out.println("good job");
+						JOptionPane.showMessageDialog(null, "Register success");
+						//注册成功以后进入登陆界面
+				        SignGUI frame = new SignGUI();
+						frame.setVisible(true);
+				        dispose();
+				        
+					}else if (status==7){
+						//System.out.println("phone repeat");
+						JOptionPane.showMessageDialog(null, "The phone number has already been registered");
+						
+					}else if (status==3){
+						//System.out.println("phone check wrong");
+						JOptionPane.showMessageDialog(null, "The phone number is wrong (11 digits only)");
+						
+					}else if(status==8){
+						//System.out.println("name repeat");
+						JOptionPane.showMessageDialog(null, "The user name has already been registered");
+//					}else if (status==2){
+//						System.out.println("phone number can't be null");
+//					}else if (status==4){
+//						System.out.println("name can't be null");
+						
+					}else if (status==5){
+						//System.out.println("please enter logical height");
+						JOptionPane.showMessageDialog(null, "Please input resonable height");
+						
+					}else if (status==6){
+						//System.out.println("please enter rational weight");
+						JOptionPane.showMessageDialog(null, "Please input resonable weight");
+						
+					}
+				}
 			}
 		});
 		//btn change color
